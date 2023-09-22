@@ -24,10 +24,7 @@ pipeline{
 
         stage('Run container'){
             steps{
-                sh '''
-                echo running application
-                docker run -p 8000:8000 -it ${DOCKER_REPO}
-                '''
+                docker.image('your-image-name:tag').run('-p 8000:8000 -it')
             }
         }
 
