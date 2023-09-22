@@ -24,7 +24,7 @@ pipeline{
 
         stage('Run container'){
             steps{
-                docker.image('your-image-name:tag').run('-p 8000:8000 -it')
+                docker.image('${DOCKER_REPO}').run('-p 8000:8000 -it')
             }
         }
 
