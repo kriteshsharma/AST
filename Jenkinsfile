@@ -24,9 +24,9 @@ pipeline{
 
         stage('Run container'){
             steps{
-                script{
-                docker.image("${DOCKER_REPO}").run("-p", "8000:8000", "--detach", "--name", "${DOCKER_REPO}")
-                }
+                sh '''
+                docker run -d --name test -p 8000:8000 -it ${DOCKER_REPO}
+                '''
             }
         }
 
